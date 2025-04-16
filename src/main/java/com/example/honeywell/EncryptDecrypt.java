@@ -10,6 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.List;
 
 //import static org.yaml.snakeyaml.tokens.Token.ID.Key;
 
@@ -60,6 +61,12 @@ public class EncryptDecrypt {
         }else {
             return new ResponseEntity<>("Decryption failed",HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping("/test")
+    public ResponseEntity<String> getTest(){
+
+        return new ResponseEntity<String>("call received",HttpStatus.OK);
     }
 
 }
