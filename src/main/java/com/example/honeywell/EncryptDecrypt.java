@@ -15,7 +15,7 @@ import java.util.Base64;
 
 @RestController
 @RequestMapping("/ED")
-public class EncryptPart {
+public class EncryptDecrypt {
 
     //Encrypt section
     @PostMapping("/encrypt")
