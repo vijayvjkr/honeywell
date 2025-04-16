@@ -19,7 +19,7 @@ import java.util.List;
 public class EncryptDecrypt {
 
     //Encrypt section
-    @PostMapping("/encrypt")
+    @PostMapping("/encrypt/{inp}")
     public ResponseEntity<String> encryptData(@PathVariable("inp") String input1 ) throws UnsupportedEncodingException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException {
         if(input1 !=null){
             String result1 = "";
@@ -36,13 +36,13 @@ public class EncryptDecrypt {
 
             return new ResponseEntity<String>(result1, HttpStatus.CREATED);
         }else {
-            return new ResponseEntity<>("Encryption failed",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("No data",HttpStatus.BAD_REQUEST);
         }
     }
 
 
     //Decrypt section
-    @PostMapping("/decrypt")
+    @PostMapping("/decrypt/{inp}")
     public ResponseEntity<String> decryptData(@PathVariable("inp") String input2 ) throws NoSuchPaddingException, NoSuchAlgorithmException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
         if(input2!=null){
             String key = "vijay";
@@ -59,14 +59,14 @@ public class EncryptDecrypt {
 
             return new ResponseEntity<String>(key+","+result2,HttpStatus.CREATED);
         }else {
-            return new ResponseEntity<>("Decryption failed",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("No data",HttpStatus.BAD_REQUEST);
         }
     }
 
-    @GetMapping("/test")
-    public ResponseEntity<String> getTest(){
-
-        return new ResponseEntity<String>("call received",HttpStatus.OK);
-    }
+//    @GetMapping("/test")
+//    public ResponseEntity<String> getTest(){
+//
+//        return new ResponseEntity<String>("call received",HttpStatus.OK);
+//    }
 
 }
